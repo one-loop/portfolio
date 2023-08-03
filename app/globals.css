@@ -1,0 +1,282 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+      --navigation-height: 4.8rem;
+      color-scheme: dark;
+    }
+
+    ::selection {
+      color: rgb(208, 214, 224);
+      background: rgb(79, 82, 180);
+    }
+  
+    html {
+      @apply bg-background font-sans text-off-white;
+      font-size: 62.5%;
+      scroll-behavior: smooth !important;
+      overflow-x: hidden;
+    }
+
+    .highlighted-keys .active rect:first-child {
+      fill-opacity: 0.4;
+    }
+
+    .highlighted-keys .active rect:not(:first-child ){
+      stroke-opacity: 1;
+    } 
+
+    .highlighted-keys .active path{
+      fill-opacity: 1;
+    }
+  }
+  
+  @layer utilities {
+    .text-shadow {
+      text-shadow: rgb(0 0 0 / 56%) 0px 3px 12px;
+    }
+
+    .button-shadow {
+      text-shadow: 0 4px 7px rgba(0, 0, 0, 0.15), 0 100px 80px rgba(255, 255, 255, 0.02), 0 42px 33px rgba(255, 255, 255, 0.024), 0 22px 18px rgba(255, 255, 255, 0.028), 0 12px 10px rgba(255, 255, 255, 0.034), 0 7px 5px rgba(255, 255, 255, 0.04), 0 3px 2px rgba(255, 255, 255, 0.07);
+    }
+
+    .text-gradient {
+      background: linear-gradient(to right bottom, rgb(255, 255, 255) 30%, rgba(255, 255, 255, 0.38));
+      background-clip: text;
+      color: transparent;
+    }
+
+    .mask-radial-faded {
+      mask-image: radial-gradient(circle at center center, black, transparent 80%)
+    }
+
+    .mask-linear-faded {
+      mask-image: linear-gradient(black, transparent 70%)
+    }
+
+    .mask-keyboard {
+      mask-image: linear-gradient(transparent 0%, rgba(0, 0, 0, 0.57) 33.98%, black 100%);
+    }
+
+    .mask-shortcutkeys {
+      mask-image: linear-gradient(to right, transparent, black 40%, black calc(60%), transparent 100%);
+    }
+  } 
+
+  
+
+  .card {
+    --card-w: 70%;
+    --card-h: auto; 
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1.5px;
+    border-radius: 12px;
+    width: var(--card-w) !important;
+    height: var(--card-h);
+    position: relative;
+    overflow: hidden;
+    z-index: 10;
+  }
+
+  
+
+  .card .inner {
+    border-radius: 12px;
+    padding: 20px;
+    width: 100%;
+    height: 100%;
+    background: #161b22;
+    background: rgb(0, 2, 18, 0.5);
+    backdrop-filter: blur(12px);
+    transition: background 300ms ease-in-out;
+  }
+
+  .card:hover .inner {
+    background: rgb(0, 2, 18, 0.2);
+    backdrop-filter: blur(80px);
+  }
+
+  .card:hover img {
+    transition: transform 0.15s ease-in;
+    transform: scale(1.01);
+  }
+
+  .card:hover svg {
+    transition: transform 0.15s ease-in;
+    transform: translate(20%, -20%);
+    /* color: #8c8eff; */
+  }
+
+  .card:hover h3 {
+    /* color: #8c8eff; */
+  }
+
+
+  .glow {
+    filter: blur(100px);
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    /* width: var(--card-w) !important;
+    height: var(--card-h); */
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    /* background: #ffa28b; */
+    background-image: linear-gradient(124.31deg,#46e3b7 0.18%,#2f7ad0 89.82%);
+  }
+
+  .glow-2 {
+    filter: blur(100px);
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    /* width: var(--card-w) !important;
+    height: var(--card-h); */
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    /* background: #ffa28b; */
+    background-image: linear-gradient(285.49deg,rgb(51, 6, 98) -14.61%,#e600ff 106.06%) !important;
+    color: rgb(56, 20, 30);
+  }
+
+  .fake-glow {
+    display: hidden;
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+  }
+
+  .animated-text {
+    background: linear-gradient(
+        to right,
+        #7953cd 20%,
+        #db91cb 30%,
+        #db91cb 70%,
+        #764ada 80%
+    );
+    background: linear-gradient(
+        to right,
+        #2f7ad0 20%,
+        #46e3b7 30%,
+        #46e3b7 70%,
+        #2f7ad0 80%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-fill-color: transparent;
+    background-size: 500% auto;
+    animation: textShine 5s ease-in-out infinite forwards;
+  }
+
+  .animate-spinner-ease-spin {
+    animation: spinner-spin .8s ease infinite;
+  }
+
+  .animate-spinner-linear-spin {
+    animation: spinner-spin .8s linear infinite;
+  }
+
+  .scroll-line-animation {
+    top: 1.1rem;
+    /* animation: scrollAnim 3s cubic-bezier(0.76, 0, 0.3, 1) infinite forwards; */
+    animation: scrollAnim 3.5s ease-in-out infinite forwards;
+    animation-delay: 800ms;
+  }
+
+  .g-recaptcha {
+    overflow:hidden;
+    width:298px;
+    height:74px;
+  }
+
+  .highlight {
+    color: #8ccbff;
+    /* color: #8c8eff; */
+  }
+
+  iframe {
+    margin: -1px 0px 0px -2px;  
+    /* padding: 1px; */
+    transition: opacity 0.7s ease-in;
+    border: solid 5px black;
+  }
+
+  .arrow {
+    display: inline-block;
+  }
+
+  a:hover .arrow, button:hover .arrow {
+    transition: transform 0.2s;
+    transform: translateX(5px);
+  }
+  
+
+  /* #myThreeJsCanvas {
+    max-width: 800px;
+    max-height: 800px;
+    height: 100%;
+    width: 100%;
+    cursor: grabbing;
+  } */
+
+  @keyframes textShine {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+  }
+
+  @keyframes spinner-spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(1turn);
+    }
+  }
+
+@keyframes scrollAnim {
+  0% {
+    top: 1.1rem;
+    opacity: 1;
+  }
+  50% {
+    top: 6.4rem;
+    opacity: 0;
+  }
+  100% {
+    top: 1.1rem;
+    opacity: 1;
+  }
+}
+
+  @media only screen and (max-width: 500px) {
+    canvas {
+      height: 100vh;
+    }
+  }
+
+  @media only screen and (max-width: 750px) {
+    .card {
+      --card-w: 100%;
+    }
+  }
+
+  @media(max-width: 320px) {
+    .card {
+      width: 100%;
+    }
+  }
