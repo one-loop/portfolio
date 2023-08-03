@@ -1,7 +1,7 @@
 "use client";
 
 import { useInView } from "react-intersection-observer";
-import classNames from "classnames";
+import classnames from "classnames";
 import { CSSProperties, useEffect, useState, useRef } from "react";
 
 const randomNumberBetween = (min: number, max: number) => {
@@ -54,7 +54,7 @@ export const HeroImage = () => {
   return (
     <div ref={ref} className="mt-[12.8rem] md:my-auto md:flex md:items-center [perspective:2000px] rounded-full w-[30rem] h-[30rem]">
       <div
-        className={classNames(
+        className={classnames(
           "relative border border-transparent-white bg-white bg-opacity-[0.01] bg-hero-gradient rounded-full",
           inView ? "animate-image-rotate" : "[transform:rotateX(25deg)]",
           "before:absolute before:top-0 before:left-0 before:h-full before:w-full before:bg-hero-glow before:opacity-0 before:[filter:blur(120px)]",
@@ -62,7 +62,7 @@ export const HeroImage = () => {
         )}
       >
         <svg
-          className={classNames(
+          className={classnames(
             "absolute left-0 top-0 h-full w-full",
             "[&_path]:stroke-white [&_path]:[stroke-opacity:0.2] [&_path]:[stroke-dasharray:1] [&_path]:[stroke-dashoffset:1]",
             // inView && "[&_path]:animate-sketch-lines"
@@ -79,7 +79,7 @@ export const HeroImage = () => {
         </svg>
 
         <img
-          className={classNames(
+          className={classnames(
             "relative z-10 transition-opacity delay-[680ms] rounded-full w-[30rem] h-[30rem] pointer-events-none",
             inView ? "opacity-100" : "opacity-0"
           )}

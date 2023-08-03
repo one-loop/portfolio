@@ -1,4 +1,4 @@
-import classNames from "classnames";
+import classnames from "classnames";
 
 export const Container = ({
     children, 
@@ -9,7 +9,7 @@ export const Container = ({
     id?: string
 }) => {
     return (
-    <div className={classNames("max-w-[120rem] mx-auto px-8", className)}>
+    <div className={classnames("max-w-[120rem] mx-auto px-8", className)}>
         {children}
     </div>
     );

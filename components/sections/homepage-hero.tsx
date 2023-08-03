@@ -8,7 +8,7 @@ import { GithubLogo } from "../logos/github";
 import { LinkedinLogo } from "../logos/linkedin";
 import { Container } from "../container";
 import { useInView } from "react-intersection-observer";
-import classNames from "classnames";
+import classnames from "classnames";
 
 
 
@@ -52,7 +52,7 @@ export const HomepageHero = () => {
     </Hero>
     <Link href="#about" className="block w-[10rem] mx-auto">
       <div className="cursor-pointer w-[10rem] mx-auto mt-[12rem]">
-        <div id="scroll-anim" ref={ref} className={classNames(
+        <div id="scroll-anim" ref={ref} className={classnames(
           "[transition:opacity_0.5s]",
           inView && "opacity-100",
           !inView && "opacity-0",

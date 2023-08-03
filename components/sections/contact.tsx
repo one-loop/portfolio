@@ -4,7 +4,7 @@ import React, { useRef } from 'react';
 import emailjs from '@emailjs/browser';
 import { Container } from "../container";
 import { Features } from "../features";
-import classNames from 'classnames';
+import classnames from "classnames";
 import { useInView } from "react-intersection-observer";
 import ReCAPTCHA from "react-google-recaptcha";
 
@@ -35,7 +35,7 @@ export const Contact = () => {
     <section 
         id="contact"
         ref={ref}
-        className={classNames(
+        className={classnames(
             "after:bg-[radial-gradient(ellipse_100%_40%_at_50%_60%,rgba(var(--feature-color),0.1),transparent) relative flex flex-col items-center overflow-x-hidden overflow-x-clip before:pointer-events-none before:absolute before:h-[40rem] before:w-full before:bg-[conic-gradient(from_90deg_at_80%_50%,#000212,rgb(var(--feature-color-dark))),conic-gradient(from_270deg_at_20%_50%,rgb(var(--feature-color-dark)),#000212)] before:bg-no-repeat before:transition-[transform,opacity] before:duration-[960ms] before:ease before:[mask:radial-gradient(100%_50%_at_center_center,_black,_transparent)] before:[background-size:50%_100%,50%_100%] before:[background-position:1%_0%,99%_0%] after:pointer-events-none after:absolute after:inset-0",
             inView && "is-visible before:opacity-100 before:[transform:rotate(180deg)_scale(2)]",
             !inView && "before:opacity-40 before:rotate-180"
@@ -50,7 +50,7 @@ export const Contact = () => {
           <div className="mt-[12.8rem] mb-16 w-full md:mt-[25.2rem]">
               <div className="relative before:absolute before:inset-0 heading-container">
                   <Container
-                      className={classNames(
+                      className={classnames(
                       "max-w-[90%] text-center",
                       )}
                   >
@@ -84,7 +84,7 @@ export const Contact = () => {
                       className="mx-auto flex justify-center"
                     />, */}
                     <div className="flex">
-                      <button type="submit" value="Send" data-sitekey="6LcyrWgnAAAAACIXG_6J3NSsE10LKS-H9ru6kuNb" data-callback="onSubmit" className={classNames(
+                      <button type="submit" value="Send" data-sitekey="6LcyrWgnAAAAACIXG_6J3NSsE10LKS-H9ru6kuNb" data-callback="onSubmit" className={classnames(
                         "rounded-full text-off-white bg-white bg-opacity-10 border border-transparent-white backdrop-filter-[12px] hover:bg-opacity-20 transition-colors ease-in",
                         "[&_.highlight]:bg-transparent-white [&_.highlight]:rounded-full [&_.highlight]:px-2 [&_.highlight:first-child]:-ml-2 [&_.highlight:first-child]:mr-2 [&_.highlight:last-child]:ml-2 [&_.highlight:last-child]:-mr-2",
                         "text-sm px-4 h-8 mt-2",
