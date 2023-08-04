@@ -247,7 +247,7 @@ export const RoomModel = () => {
       const ambientDayLight = new THREE.AmbientLight(0xfdfbd3, 0.35);
 
       let today = new Date().getHours();
-      if (today >= 7 && today <= 14) { // day lights between 7am and 7pm
+      if (today >= 7 && today <= 18) { // day lights between 7am and 7pm
         model.add(roomLight, aquariumLight, deskLight, ambientDayLight, sunLight);
       } else { // night lights
         // lamp light adds a lot of lag, so I removed it
