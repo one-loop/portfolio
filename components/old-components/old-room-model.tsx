@@ -8,7 +8,7 @@ import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader";
 // import { DRACOLoader } from "@loaders.gl/draco/src/draco-loader";
 import { Container } from "../container"
 import { Vector3 } from "three"
-import classnames from "classnames";
+import classNames from "classnames";
 import { Features } from "../features";
 import { Button } from "../button";
 
@@ -149,7 +149,7 @@ export default function RoomModel() {
           </div>
           <div className="w-[90%] min-h-[90%] mx-auto lg:w-[50%] h-[80rem] relative overflow-visible">
             {/* <span className="absolute [--grid-color:#746cf3] [--gradient-opacity:0.3] [--gradient:linear-gradient(92.88deg,#455eb5_9.16%,#5643cc_43.89%,#673fd7_64.72%)] before:absolute after:absolute before:[background-size:24px_24px] before:[background-image:var(--gradient)] h-[800px] w-[800px] before:[background-image:linear-gradient(to_right,_transparent_12px,_#746cf3_13px,_transparent_13px_),_linear-gradient(to_bottom,_transparent_12px,_#746cf3_13px,_transparent_13px))] after:[border-radius:50%] after:[opacity:0.3] after:[filter:blur(50px)] after:[background-image:linear-gradient(92.88deg,#455eb5_9.16%,#5643cc_43.89%,#673fd7_64.72%)]"></span> */}
-            <span className={classnames(
+            <span className={classNames(
               "absolute pointer-events-none [--grid-color:#f3bd6c] [z-index:-1] [--gradient-opacity:0.6] [--grid-size:24px] [--grid-size-half:12px]",
               "[background-size:var(--grid-size)_var(--grid-size)] [background-image:linear-gradient(to_right,_transparent_var(--grid-size-half),_var(--grid-color)_calc(var(--grid-size-half)+1px),_transparent_calc(var(--grid-size-half)+1px)),_linear-gradient(to_bottom,_transparent_var(--grid-size-half),_var(--grid-color)_calc(var(--grid-size-half)+1px),_transparent_calc(var(--grid-size-half)+1px)_)] md:rounded-[50%] h-[80rem] w-[80rem] overflow-clip")}>
             </span>

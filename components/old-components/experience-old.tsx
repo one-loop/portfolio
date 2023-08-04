@@ -1,6 +1,6 @@
 "use client"
 import React, { useEffect } from "react";
-import classnames from "classnames";
+import classNames from "classnames";
 import { Features } from "../features";
 import { Container } from "../container";
 import { Button } from "../button";
