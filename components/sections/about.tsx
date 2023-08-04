@@ -65,11 +65,11 @@ export const About = () => {
             <span className="absolute pointer-events-none top-[-200px] [z-index:-1] left-[-200px] h-[1100px] w-[1100px] overflow-x-clip [background:radial-gradient(transparent_0%,#000212_60%)] h-[100%] w-[100%]"></span>
             
             {/* Cool Gradient */}
-            {/* <span className="absolute pointer-events-none blur-[50px] [z-index:-1] [--gradient:linear-gradient(124.31deg,#46e3b7_0.18%,#2f7ad0_89.82%)] h-[800px] w-[800px] [background-image:var(--gradient)] md:rounded-[50%] opacity-60 h-[100%] w-[100%] overflow-clip"></span> */}
+            <span className="absolute pointer-events-none blur-[50px] [z-index:-1] [--gradient:linear-gradient(124.31deg,#46e3b7_0.18%,#2f7ad0_89.82%)] h-[800px] w-[800px] [background-image:var(--gradient)] md:rounded-[50%] opacity-60 h-[100%] w-[100%] overflow-clip"></span>
 
 
             {/* Warm Gradient */}
-            <span className="absolute pointer-events-none blur-[50px] [z-index:-1] [--gradient:linear-gradient(285.49deg,#f537f9_-14.61%,#f7c12b_106.06%)] h-[800px] w-[800px] [background-image:var(--gradient)] md:rounded-[50%] opacity-60 h-[100%] w-[100%] overflow-clip"></span>
+            {/* <span className="absolute pointer-events-none blur-[50px] [z-index:-1] [--gradient:linear-gradient(285.49deg,#f537f9_-14.61%,#f7c12b_106.06%)] h-[800px] w-[800px] [background-image:var(--gradient)] md:rounded-[50%] opacity-60 h-[100%] w-[100%] overflow-clip"></span> */}
             <span className="absolute pointer-events-none top-[-150px] [z-index:-1] left-[-150px] h-[1100px] w-[1100px] overflow-x-clip [background:radial-gradient(transparent_0%,#000212_60%)] h-[100%] w-[100%]"></span>
             <div className="w-full h-full overflow-hidden flex align-center justify-center" id="canvas-container">
               {/* <video muted autoPlay loop width="0" id="video1" src="/video.mp4" className="opacity-0 absolute top-[50%]"/> */}
