@@ -19,8 +19,9 @@ export const RoomModel = () => {
     test.animate();
 
     // initialize global variables
-    let camera = test.camera, scene = test.scene;
-    let model: THREE.Object3D<THREE.Event> | THREE.AnimationObjectGroup
+    let camera = test.camera, scene = test.scene, renderer = test.renderer;
+    // let model: THREE.Object3D<THREE.Event> | THREE.AnimationObjectGroup
+    let model: THREE.Group
     let mixer: THREE.AnimationMixer, mouse: THREE.Vector2, raycaster: THREE.Raycaster;
     let isHoveringOverMonitor: boolean, canZoomOut = false;
     let savedPosition: THREE.Vector3, targetPosition: THREE.Vector3, currentPosition: THREE.Vector3;
@@ -72,7 +73,7 @@ export const RoomModel = () => {
     //   }
     // });
 
-    scene.add(iframeContainer);
+    scene!.add(iframeContainer);
 
     const loader = new GLTFLoader();
     
@@ -97,34 +98,36 @@ export const RoomModel = () => {
       let monitorScreenMaterial;
       let laptopScreenMaterial;
       let computerScreenMaterial;
-      let monitorScreen = model.getObjectByName('Monitor_Screen');
-      let monitor = model.getObjectByName('Monitor');
+      let monitorScreen = model.getObjectByName('Monitor_Screen') as THREE.Mesh;
+      let monitor = model.getObjectByName('Monitor') as THREE.Mesh;
 
       model.traverse((child => {
-        if (child.name === 'Aquarium_Glass001') {
-          aquariumGlassMaterial = new THREE.MeshPhysicalMaterial({
-            // roughness: 0,
-            // metalness: 0,
-            // color: '#80aeff',
-            // ior: 1.5,
-            // transmission: 1,
-            // opacity: 1,
-            // thickness: 0.02,
-            visible: false
-          });
-          child.material = aquariumGlassMaterial;
-        } else if (child.name === 'Monitor_Screen' || child.name === 'Laptop_Screen') {
-          monitorScreenMaterial = new THREE.MeshBasicMaterial({ map: videoTexture2 });
-          monitorScreenMaterial.map.encoding = THREE.sRGBEncoding;
-          child.material = monitorScreenMaterial;
-        } else if (child.name === 'Computer_Screen') {
-          computerScreenMaterial = new THREE.MeshBasicMaterial({ map: videoTexture2 });
-          computerScreenMaterial.map.encoding = THREE.sRGBEncoding;
-          child.material = computerScreenMaterial;
+        if (child instanceof THREE.Mesh) {
+          if (child.name === 'Aquarium_Glass001') {
+            aquariumGlassMaterial = new THREE.MeshPhysicalMaterial({
+              // roughness: 0,
+              // metalness: 0,
+              // color: '#80aeff',
+              // ior: 1.5,
+              // transmission: 1,
+              // opacity: 1,
+              // thickness: 0.02,
+              visible: false
+            });
+            child.material = aquariumGlassMaterial;
+          } else if (child.name === 'Monitor_Screen' || child.name === 'Laptop_Screen') {
+            monitorScreenMaterial = new THREE.MeshBasicMaterial({ map: videoTexture2 });
+            if (monitorScreenMaterial.map) monitorScreenMaterial.map.encoding = THREE.sRGBEncoding;
+            child.material = monitorScreenMaterial;
+          } else if (child.name === 'Computer_Screen') {
+            computerScreenMaterial = new THREE.MeshBasicMaterial({ map: videoTexture2 });
+            if (computerScreenMaterial.map) computerScreenMaterial.map.encoding = THREE.sRGBEncoding;
+            child.material = computerScreenMaterial;
+          }
         }
         
         // can't apply shadows to ambient or directional lights
-        if (child.isObject3D && !child.isLight) {
+        if (child.isObject3D && !(child instanceof THREE.Light)) {
           child.castShadow = true;
           child.receiveShadow = true;
         }
@@ -150,7 +153,7 @@ export const RoomModel = () => {
         mouse.y = -((event.clientY - rect.top) / (rect.height)) * 2 + 1;
 
         // update raycaster with the new mouse position
-        raycaster.setFromCamera(mouse, camera);
+        raycaster.setFromCamera(mouse, camera!);
 
         // Intersects objects in the scene with the raycaster
         const intersects = raycaster.intersectObjects(model.children);
@@ -179,7 +182,7 @@ export const RoomModel = () => {
         if (savedPosition) {
           currentPosition = savedPosition 
         } else {
-          currentPosition = camera.position;
+          currentPosition = camera!.position;
         }
 
         if (canZoomOut) {
@@ -193,7 +196,7 @@ export const RoomModel = () => {
           .to(targetPosition, 750)
           .easing(TWEEN.Easing.Quadratic.Out)
           .onUpdate(() => {
-            camera.position.copy(currentPosition);
+            camera!.position.copy(currentPosition);
           })
           .onComplete(() => {
             // This callback is executed after the camera movement is complete
@@ -205,13 +208,13 @@ export const RoomModel = () => {
           // targetPosition = new THREE.Vector3(0.5, 0.5, 1);
           // targetPosition = new THREE.Vector3(0.5, 0.5, 1.5);
           targetPosition = new THREE.Vector3(0.3, 0.3, 1.2);
-          savedPosition = camera.position;
+          savedPosition = camera!.position;
           iframeDiv.style.display = "block";
           const tween = new TWEEN.Tween(savedPosition)
           .to(targetPosition, 750)
           .easing(TWEEN.Easing.Quadratic.Out)
           .onUpdate(() => {
-            camera.position.copy(currentPosition);
+            camera!.position.copy(currentPosition);
           })
           .onComplete(() => {
             canZoomOut = true;
@@ -230,9 +233,9 @@ export const RoomModel = () => {
         // console.log(mouse);
 
         if (!canZoomOut) {
-          scene.rotation.y = mouse.x * 0.3;
-          scene.rotation.z = mouse.y * 0.05;
-          scene.rotation.x = mouse.y * -0.05;
+          scene!.rotation.y = mouse.x * 0.3;
+          scene!.rotation.z = mouse.y * 0.05;
+          scene!.rotation.x = mouse.y * -0.05;
         }
       }
 
@@ -249,12 +252,12 @@ export const RoomModel = () => {
           // targetPosition = new THREE.Vector3(0.5, 0.5, 1);
           targetPosition = new THREE.Vector3(0.5, 0.5, 1.5);
           // targetPosition = new THREE.Vector3(0.3, 0.3, 1.2);
-          savedPosition = camera.position;
+          savedPosition = camera!.position;
           const tween = new TWEEN.Tween(savedPosition)
           .to(targetPosition, 750)
           .easing(TWEEN.Easing.Quadratic.Out)
           .onUpdate(() => {
-            camera.position.copy(currentPosition);
+            camera!.position.copy(currentPosition);
             // camera.lookAt(aquariumScreen);
           })
           .onComplete(() => {
@@ -323,9 +326,9 @@ export const RoomModel = () => {
 
       // model.position.z = -1;
       // scene.position.set(-1.3, -1.7, 0);
-      scene.position.y = -1;
-      camera.position.set(6.8, 4.5, 8.0)
-      scene.add(model);
+      scene!.position.y = -1;
+      camera!.position.set(6.8, 4.5, 8.0)
+      scene!.add(model);
 
       // to play animations
       mixer = new THREE.AnimationMixer(model);
@@ -341,9 +344,9 @@ export const RoomModel = () => {
         //   model.rotation.y += 0.01;
         //   model.rotation.z += 0.01;
         // }
-        test.renderer.render( scene, camera );
+        renderer!.render( scene!, camera! );
         TWEEN.update();
-        screenRenderer.render(scene, camera);
+        screenRenderer.render(scene!, camera!);
         requestAnimationFrame(animate);
         mixer.update(clock.getDelta());
       };
@@ -358,11 +361,11 @@ export const RoomModel = () => {
     {isLoading && ( // Show loading message or spinner while isLoading is true
       <>
         <div aria-label="Default" className="relative inline-flex flex-col gap-2 items-center justify-center">
-          <div className="relative flex w-8 h-8">
-            <i className="absolute w-full h-full rounded-full animate-spinner-ease-spin [border:solid_3px_#8ccbff] !border-t-transparent !border-l-transparent !border-r-transparent"></i>
-            <i className="absolute w-full h-full rounded-full opacity-75 animate-spinner-linear-spin [border:dotted_3px_#8ccbff] !border-t-transparent !border-l-transparent !border-r-transparent"></i>
+          <div className="relative flex w-10 h-10">
+            <i className="absolute w-full h-full rounded-full animate-spinner-ease-spin [border:solid_3px_#006FEE] !border-t-transparent !border-l-transparent !border-r-transparent"></i>
+            <i className="absolute w-full h-full rounded-full opacity-75 animate-spinner-linear-spin [border:dotted_3px_#006FEE] !border-t-transparent !border-l-transparent !border-r-transparent"></i>
           </div>
-          <span className="text-md text-[#8ccbff]">Loading...</span>
+          <span className="text-md text-off-white">Loading...</span>
         </div>
       </>
     )}
@@ -372,5 +375,3 @@ export const RoomModel = () => {
   )
 
 }
-
-
