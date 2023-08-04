@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
 import { Container } from "../container";
 import { Features } from "../features";
@@ -11,20 +11,35 @@ import { useInView } from "react-intersection-observer";
 
 export const Contact = () => {
   const { ref, inView } = useInView({ threshold: 0.4, triggerOnce: false});
-  const form = useRef();
+  const [showConfirmation, setShowConfirmation] = useState(false);
+  const [showLoading, setLoading] = useState(false);
+  const [showError, setShowError] = useState(false);
+  // const form = useRef();
+  const form = useRef<HTMLFormElement>(null);
 
-  const sendEmail = (e) => {
+  const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setLoading(true);
 
-    emailjs.sendForm('service_y9mmcit', 'template_jrfa0n8', form.current, 'fEOzzYHLy9Uhf7d-X')
-      .then((result) => {
-          // console.log('message sent!');
-          // console.log(result.text);
-          e.target.reset()
-      }, (error) => {
-          // console.log('message was not sent. Error')
-          console.log(error.text);
-      });
+    if (form.current) {
+      emailjs
+        .sendForm('service_y9mmcit', 'template_jrfa0n8', form.current, 'fEOzzYHLy9Uhf7d-X')
+        .then(
+          (result) => {
+            // console.log('message sent!');
+            // console.log(result.text);
+            setLoading(false);
+            setShowConfirmation(true);
+            form.current!.reset(); // Use form.current to reset the form
+          },
+          (error) => {
+            // console.log('message was not sent. Error')
+            console.log(error.text);
+            setLoading(false);
+            setShowError(true);
+          }
+        );
+    }
   };
 
   function onChange(value: any) {
@@ -64,7 +79,7 @@ export const Contact = () => {
                   <div className="[border-bottom:1px_solid_rgba(255,255,255,0.15)] py-4 text-sm px-6 w-full text-primary-text">
                       Have a question, proposal, or just want to say hello? Send me a message!
                   </div>
-                  <form className="w-[100%] p-6" id="contact-form" ref={form} onSubmit={sendEmail} action="?" method="POST">
+                  <form className="w-[100%] p-6" id="contact-form" ref={form} onSubmit={(e) => sendEmail(e)} action="?" method="POST">
                     <div className="mb-4">
                       <label className="block text-primary-text text-sm font-bold/ mb-2" htmlFor="name">First Name</label>
                       <input type="text" id="name" placeholder="Enter your name" name="from_name" required className="block w-[100%] shadow appearance-none border rounded-[6px] w-full py-2 px-3 text-off-white leading-tight focus:outline-none focus:shadow-outline bg-[rgba(255,255,255,0.03)] [border:1px_solid_rgba(255,255,255,0.1)] [transition:border_0.15s] text-sm hover:[border-color:rgb(60,61,83)] focus:[border-color:rgb(79,82,180)] focus:[border-color:#0284c7]"/>
@@ -73,7 +88,7 @@ export const Contact = () => {
                       <label className="block text-primary-text text-sm font-bold/ mb-2" htmlFor="email">Email</label>
                       <input type="email" id="email" placeholder="Enter your email" name="email_id" required className="block w-[100%] shadow appearance-none border rounded-[6px] w-full py-2 px-3 text-off-white leading-tight focus:outline-none focus:shadow-outline bg-[rgba(255,255,255,0.03)] [border:1px_solid_rgba(255,255,255,0.1)] [transition:border_0.15s] text-sm hover:[border-color:rgb(60,61,83)] focus:[border-color:rgb(79,82,180)] focus:[border-color:#0284c7]"/>
                     </div>
-                    <div className="mb-4">
+                    <div className="mb-6">
                       <label className="block text-primary-text text-sm font-bold/ mb-2" htmlFor="message">Message</label>
                       <textarea name="message" id="message" required className="block w-[100%] shadow appearance-none border rounded-[6px] w-full py-2 px-3 text-off-white leading-tight focus:outline-none focus:shadow-outline bg-[rgba(255,255,255,0.03)] [border:1px_solid_rgba(255,255,255,0.1)] [transition:border_0.15s] text-sm [resize:none] h-[10rem] hover:[border-color:rgb(60,61,83)] focus:[border-color:rgb(79,82,180)] focus:[border-color:#0284c7]" placeholder="Type your message"></textarea>
                     </div>
@@ -83,16 +98,49 @@ export const Contact = () => {
                       onChange={onChange}
                       className="mx-auto flex justify-center"
                     />, */}
-                    <div className="flex">
+                    <div className="flex justify-center">
+                      {!showConfirmation && !showError && !showLoading && (
                       <button type="submit" value="Send" data-sitekey="6LcyrWgnAAAAACIXG_6J3NSsE10LKS-H9ru6kuNb" data-callback="onSubmit" className={classnames(
                         "rounded-full text-off-white bg-white bg-opacity-10 border border-transparent-white backdrop-filter-[12px] hover:bg-opacity-20 transition-colors ease-in",
                         "[&_.highlight]:bg-transparent-white [&_.highlight]:rounded-full [&_.highlight]:px-2 [&_.highlight:first-child]:-ml-2 [&_.highlight:first-child]:mr-2 [&_.highlight:last-child]:ml-2 [&_.highlight:last-child]:-mr-2",
-                        "text-sm px-4 h-8 mt-2",
+                        "text-sm px-4 h-8",
                         "mx-auto"
                         )}>
                         Send Message{" "}
                         <span className="arrow inline-block">→</span>
                       </button>
+                      )}
+                      {showLoading && (
+                        <div className="flex flex-row items-center justify-center gap-2">
+                          <div className="relative flex w-8 h-8">
+                            <i className="absolute w-full h-full rounded-full animate-spinner-ease-spin [border:solid_3px_#006FEE] !border-t-transparent !border-l-transparent !border-r-transparent"></i>
+                            <i className="absolute w-full h-full rounded-full opacity-75 animate-spinner-linear-spin [border:dotted_3px_#006FEE] !border-t-transparent !border-l-transparent !border-r-transparent"></i>
+                          </div>
+                          <span className="text-sm text-off-white select-none">Sending Message...</span>
+                        </div>
+                      )}
+                      {showConfirmation && (
+                      <div className="flex flex-row items-center justify-center gap-2">
+                        {/* <span aria-hidden="true" className="relative inline-flex items-center justify-center flex-shrink-0 overflow-hidden before:content-[''] before:absolute before:inset-0 before:border-solid before:border-2 before:box-border before:border-default after:content-[''] after:absolute after:inset-0 after:scale-50 after:opacity-0 after:origin-center group-data-[selected=true]:after:scale-100 group-data-[selected=true]:after:opacity-100 group-data-[hover=true]:before:bg-default-100 outline-none group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background after:bg-success after:text-success-foreground text-success-foreground w-5 h-5 mr-2 rounded-[calc(theme(borderRadius.medium)*0.6)] before:rounded-[calc(theme(borderRadius.medium)*0.6)] after:rounded-[calc(theme(borderRadius.medium)*0.6)] before:transition-background group-data-[pressed=true]:scale-95 transition-transform after:transition-transform-opacity after:!ease-linear after:!duration-200"><svg aria-hidden="true" role="presentation" viewBox="0 0 17 18" className="z-10 opacity-0 group-data-[selected=true]:opacity-100 w-4 h-3 transition-opacity"><polyline fill="none" points="1 9 7 14 15 4" stroke="currentColor" stroke-dasharray="22" stroke-dashoffset="44" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" id="checkmark"></polyline></svg></span> */}
+                        <span className="w-5 h-5 rounded-[8px] bg-[#1ac964] inline-block flex justify-center items-center">
+                          <svg aria-hidden="true" role="presentation" viewBox="0 0 17 18" className="z-10 w-4 h-3"><polyline fill="none" points="1 9 7 14 15 4" stroke="#000" strokeDasharray="22" strokeDashoffset="44" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" id="checkmark"></polyline></svg>
+                        </span>
+                        {/* <p className="text-[rgb(24,201,100)] text-sm bg-[rgba(24,201,100,0.2)] py-[2px] px-[12px] rounded-full [border:1px_solid_rgba(24,201,100,_0.2)]">Message has been sent!</p> */}
+                        <p className="text-sm text-off-white select-none">Message has been sent!</p>
+                      </div>
+                      )}
+                      {showError && (
+                      <div className="flex flex-row items-center justify-center gap-2">
+                        {/* <span aria-hidden="true" className="relative inline-flex items-center justify-center flex-shrink-0 overflow-hidden before:content-[''] before:absolute before:inset-0 before:border-solid before:border-2 before:box-border before:border-default after:content-[''] after:absolute after:inset-0 after:scale-50 after:opacity-0 after:origin-center group-data-[selected=true]:after:scale-100 group-data-[selected=true]:after:opacity-100 group-data-[hover=true]:before:bg-default-100 outline-none group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background after:bg-success after:text-success-foreground text-success-foreground w-5 h-5 mr-2 rounded-[calc(theme(borderRadius.medium)*0.6)] before:rounded-[calc(theme(borderRadius.medium)*0.6)] after:rounded-[calc(theme(borderRadius.medium)*0.6)] before:transition-background group-data-[pressed=true]:scale-95 transition-transform after:transition-transform-opacity after:!ease-linear after:!duration-200"><svg aria-hidden="true" role="presentation" viewBox="0 0 17 18" className="z-10 opacity-0 group-data-[selected=true]:opacity-100 w-4 h-3 transition-opacity"><polyline fill="none" points="1 9 7 14 15 4" stroke="currentColor" stroke-dasharray="22" stroke-dashoffset="44" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" id="checkmark"></polyline></svg></span> */}
+                        <span className="w-5 h-5 rounded-[8px] bg-[#f5a524] inline-block flex justify-center items-center">
+                          <svg width="14" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1.67982 14.275H14.3202C15.6128 14.275 16.4185 12.8733 15.7722 11.757L9.45205 0.837235C8.80576 -0.279078 7.19424 -0.279078 6.54795 0.837235L0.227771 11.757C-0.418516 12.8733 0.387244 14.275 1.67982 14.275ZM8 8.39963C7.53837 8.39963 7.16067 8.02193 7.16067 7.5603V5.88163C7.16067 5.42 7.53837 5.0423 8 5.0423C8.46163 5.0423 8.83933 5.42 8.83933 5.88163V7.5603C8.83933 8.02193 8.46163 8.39963 8 8.39963ZM8.83933 11.757H7.16067V10.0783H8.83933V11.757Z" fill="black"/>
+                          </svg>
+                        </span>
+                        {/* <p className="text-[rgb(24,201,100)] text-sm bg-[rgba(24,201,100,0.2)] py-[2px] px-[12px] rounded-full [border:1px_solid_rgba(24,201,100,_0.2)]">Message has been sent!</p> */}
+                        <p className="text-sm text-off-white select-none">Error! Message not sent</p>
+                      </div>
+                      )}
                     </div>
                   </form>
                 </div>
