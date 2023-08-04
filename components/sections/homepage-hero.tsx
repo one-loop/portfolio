@@ -26,7 +26,7 @@ export const HomepageHero = () => {
           </HeroTitle>
           <HeroSubtitle className="translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:400ms] text-center md:text-left">
             Hey there! I'm a Computer Science student at NYU. <br className="hidden md:block"/>
-            I'm passionate about building truly great software.
+            I love exploring and crafting truly great software 🚀
           </HeroSubtitle>
           <div className="fill-primary-text [&_svg]:w-[2.8rem] [&_svg]:inline [&_svg]:mr-4 translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:600ms] flex flex-col md:flex-row gap-4 md:gap-0 items-center z-40">
             {/* <Button href="resume.pdf" className="translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:600ms] text-lg !rounded-[12px]" variant="secondary" size="large">
