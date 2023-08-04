@@ -18,6 +18,14 @@ export default function Head() {
         <meta property='og:image:width' content='1200' />
         <meta property='og:image:height' content='627' />
         <meta name="robots" content="noindex" />
+
+        {/* <!-- Twitter meta tags --> */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Saad Sifar Portfolio" />
+        <meta name="twitter:description" content="Hi, I'm Saad, a Computer Science student at New York University Abu Dhabi. This is my portfolio website" />
+        <meta name="twitter:image" content="https://github.com/one-loop/portfolio/blob/main/public/thumbnail.jpg?raw=true" />
+        <meta name="twitter:url" content="https://saadsifar.vercel.app/" />
+        
         {/* <script src="https://www.google.com/recaptcha/api.js" async defer></script>
         <script>
           function onSubmit(token) {
