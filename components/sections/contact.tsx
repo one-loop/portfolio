@@ -6,7 +6,7 @@ import { Container } from "../container";
 import { Features } from "../features";
 import classnames from "classnames";
 import { useInView } from "react-intersection-observer";
-import ReCAPTCHA from "react-google-recaptcha";
+// import ReCAPTCHA from "react-google-recaptcha";
 
 
 export const Contact = () => {
