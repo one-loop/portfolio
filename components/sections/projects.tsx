@@ -14,7 +14,7 @@ export const Projects = () => {
     useEffect(() => {
         const allCards = document.querySelectorAll(".card");
 
-        const projectsSection = document.querySelector('#projects');
+        const projectsSection = document.querySelector('#projects') as HTMLDivElement;
         projectsSection.addEventListener("mousemove", (ev) => {
             allCards.forEach((e) => {
                 const glow = e.querySelector(".glow") as HTMLElement;
