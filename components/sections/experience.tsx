@@ -14,7 +14,7 @@ export const Experience = () => {
     useEffect(() => {
         const allCards = document.querySelectorAll(".card");
 
-        const experienceSection = document.querySelector('#experience');
+        const experienceSection = document.querySelector('#experience') as HTMLDivElement;
         experienceSection.addEventListener("mousemove", (ev) => {
             allCards.forEach((e) => {
                 const glow = e.querySelector(".glow") as HTMLElement;
