@@ -17,7 +17,7 @@ export default class SceneInit {
   // Additional components.
   clock: THREE.Clock | undefined;
   stats: Stats | undefined;
-  gui: GUI | undefined;
+  // gui: GUI | undefined;
   controls: OrbitControls | undefined;
 
   // Lighting is basically required.
