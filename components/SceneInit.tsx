@@ -88,7 +88,7 @@ export default class SceneInit {
 
     this.clock = new THREE.Clock();
     this.stats = new Stats();
-    document.body.appendChild(this.stats.dom);
+    // document.body.appendChild(this.stats.dom);
 
     // if window resizes
     window.addEventListener('resize', () => this.onWindowResize(), false);
