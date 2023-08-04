@@ -31,7 +31,7 @@ export const Header = () => {
   return (
     <header className="select-none z-50 fixed top-0 left-0 z-10 w-full backdrop-blur-[12px] border-b border-transparent-white">
       <Container className="flex h-navigation-height">
-        <Link className="flex items-center text-md [text-shadow:rgba(0,0,0,0.3)_1px_1px_4px,rgba(0,0,0,0.1)_2px_2px_4px]" href="/" onClick={window.scrollTo(0, 0)}>
+        <Link className="flex items-center text-md [text-shadow:rgba(0,0,0,0.3)_1px_1px_4px,rgba(0,0,0,0.1)_2px_2px_4px]" href="/">
           saad sifar
         </Link>
 
