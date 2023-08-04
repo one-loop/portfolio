@@ -4,8 +4,14 @@ export default function Head() {
         <title>Saad Sifar Portfolio | CS @ NYU</title>
         <meta
           name="description"
-          content="Hey there! I'm a Computer Science student at NYU."
+          content="Hey there! I'm a student at New York University Abu Dhabi majoring in Computer Science. This is my porfolio website"
         />
+        <meta property='og:title' content='Saad Sifar Portfolio'/>
+        <meta property='og:image' content='https://github.com/one-loop/portfolio/blob/main/public/thumbnail.jpg?raw=true'/>
+        <meta property='og:description' content="Hi, I'm Saad, a Computer Science student at New York University Abu Dhabi. This is my porfolio website"/>
+        <meta property='og:url' content='https://saadsifar.vercel.app/'/>
+        <meta property='og:image:width' content='1200' />
+        <meta property='og:image:height' content='627' />
         <meta name="robots" content="noindex" />
         {/* <script src="https://www.google.com/recaptcha/api.js" async defer></script>
         <script>
