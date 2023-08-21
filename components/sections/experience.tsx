@@ -148,7 +148,7 @@ export const Experience = () => {
                                     <ul className="mt-2 text-sm leading-normal text-primary-text list-disc [&_li]:mb-1">
                                         <li>Developed responsive and user-friendly websites for diverse clients, ensuring seamless functionality across various devices and browsers.</li>
                                         <li>Collaborated with clients to gather project requirements, translating their vision into practical design solutions and delivering projects within agreed timelines.</li>
-                                        <li>Implemented content management systems (CMS) such as WordPress, Joomla, or Drupal, empowering clients to easily update and maintain their websites.</li>
+                                        <li>Implemented content management systems (CMS) such as WordPress, GraphCMS, and Hygraph empowering clients to easily update and maintain their websites.</li>
                                         {/* <li>Customized and integrated third-party plugins and APIs to extend website functionality, enhancing performance and enabling seamless data exchange.</li> */}
                                     </ul>
                                     <div className="mt-2">
