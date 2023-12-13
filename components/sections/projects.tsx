@@ -257,44 +257,43 @@ export const Projects = () => {
                                     </Link>
                                 </div> */}
                                 <div className="card [--card-w:100%] sm:[--card-w:calc(50%-(3.2rem/2))] !p-0 [border:1px_solid_rgb(255,255,255,0.08)]">
+                                    <Link href="https://github.com/one-loop/FocusBoostVR" target="_blank">    
                                         <div className="inner !p-0 pb-1 transition-all cursor-pointer">
                                             <div className="overflow-hidden">
-                                                <img src="../cards/Porsche Card Large.jpeg" alt="" className="card-image h-auto max-h-[300px] w-full object-cover object-top"/>
+                                                <img src="../cards/Focus Boost.png" alt="" className="card-image h-auto max-h-[300px] w-full object-cover object-top"/>
                                             </div>
                                             <div className="sm:col-span-6 p-5">
                                                 <h3 className="text-lg">
-                                                    <span>Porsche 911 Website Design</span>
+                                                    <span>FocusBoost VR ADHD Helper</span>
                                                 </h3>
                                                 <p className="mt-2 text-sm leading-normal text-primary-text">
-                                                    Just a practice project on designing with Figma. I'm currently working to create this into a live site.
+                                                    A VR Term Project Built in Unity 3D and C# aimed at helping children with ADHD focus and study 
                                                 </p>
                                                 <div className="mt-2">
                                                     <span className="relative inline-flex items-center mt-2 mr-2 rounded-full text-off-white bg-white bg-opacity-10 border border-transparent-white backdrop-filter-[12px] hover:bg-opacity-20 transition-colors ease-in [&_.highlight]:bg-transparent-white [&_.highlight]:rounded-full [&_.highlight]:px-2 [&_.highlight:first-child]:-ml-2 [&_.highlight:first-child]:mr-2 [&_.highlight:last-child]:ml-2 [&_.highlight:last-child]:-mr-2 text-xs px-3 h-7">
-                                                        Figma
+                                                        Unity
                                                     </span>
                                                     <span className="relative inline-flex items-center mt-2 mr-2 rounded-full text-off-white bg-white bg-opacity-10 border border-transparent-white backdrop-filter-[12px] hover:bg-opacity-20 transition-colors ease-in [&_.highlight]:bg-transparent-white [&_.highlight]:rounded-full [&_.highlight]:px-2 [&_.highlight:first-child]:-ml-2 [&_.highlight:first-child]:mr-2 [&_.highlight:last-child]:ml-2 [&_.highlight:last-child]:-mr-2 text-xs px-3 h-7">
-                                                        UI/UX
+                                                        C#
                                                     </span>
                                                     <span className="relative inline-flex items-center mt-2 mr-2 rounded-full text-off-white bg-white bg-opacity-10 border border-transparent-white backdrop-filter-[12px] hover:bg-opacity-20 transition-colors ease-in [&_.highlight]:bg-transparent-white [&_.highlight]:rounded-full [&_.highlight]:px-2 [&_.highlight:first-child]:-ml-2 [&_.highlight:first-child]:mr-2 [&_.highlight:last-child]:ml-2 [&_.highlight:last-child]:-mr-2 text-xs px-3 h-7">
-                                                        HTML
+                                                        C++
                                                     </span>
                                                     <span className="relative inline-flex items-center mt-2 mr-2 rounded-full text-off-white bg-white bg-opacity-10 border border-transparent-white backdrop-filter-[12px] hover:bg-opacity-20 transition-colors ease-in [&_.highlight]:bg-transparent-white [&_.highlight]:rounded-full [&_.highlight]:px-2 [&_.highlight:first-child]:-ml-2 [&_.highlight:first-child]:mr-2 [&_.highlight:last-child]:ml-2 [&_.highlight:last-child]:-mr-2 text-xs px-3 h-7">
-                                                        CSS
+                                                        Meta Quest 2
                                                     </span>
                                                     <span className="relative inline-flex items-center mt-2 mr-2 rounded-full text-off-white bg-white bg-opacity-10 border border-transparent-white backdrop-filter-[12px] hover:bg-opacity-20 transition-colors ease-in [&_.highlight]:bg-transparent-white [&_.highlight]:rounded-full [&_.highlight]:px-2 [&_.highlight:first-child]:-ml-2 [&_.highlight:first-child]:mr-2 [&_.highlight:last-child]:ml-2 [&_.highlight:last-child]:-mr-2 text-xs px-3 h-7">
-                                                        JS
+                                                        Oculus
                                                     </span>
                                                     <span className="relative inline-flex items-center mt-2 mr-2 rounded-full text-off-white bg-white bg-opacity-10 border border-transparent-white backdrop-filter-[12px] hover:bg-opacity-20 transition-colors ease-in [&_.highlight]:bg-transparent-white [&_.highlight]:rounded-full [&_.highlight]:px-2 [&_.highlight:first-child]:-ml-2 [&_.highlight:first-child]:mr-2 [&_.highlight:last-child]:ml-2 [&_.highlight:last-child]:-mr-2 text-xs px-3 h-7">
-                                                        React
-                                                    </span>
-                                                    <span className="relative inline-flex items-center mt-2 mr-2 rounded-full text-off-white bg-white bg-opacity-10 border border-transparent-white backdrop-filter-[12px] hover:bg-opacity-20 transition-colors ease-in [&_.highlight]:bg-transparent-white [&_.highlight]:rounded-full [&_.highlight]:px-2 [&_.highlight:first-child]:-ml-2 [&_.highlight:first-child]:mr-2 [&_.highlight:last-child]:ml-2 [&_.highlight:last-child]:-mr-2 text-xs px-3 h-7">
-                                                        NextUI
+                                                        VR
                                                     </span>
                                                 </div>
                                             </div>
                                         </div>
                                         <div className="glow glow-2"></div>
                                         <div className="fake-glow"></div>
+                                    </Link>
                                 </div>
                                 <Button href="https://github.com/one-loop?tab=repositories" target="_blank" className="text-lg mt-7 z-40 mx-auto" variant="secondary" size="large">
                                     <span className="text-[#717ce1 text-off-white">View All Projects<span className="arrow ml-1">→</span></span>
