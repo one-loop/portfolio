@@ -6,7 +6,7 @@ import { CSSLogo } from "../logos/css";
 import { TailwindLogo } from "../logos/tailwind";
 import { FigmaLogo } from "../logos/figma";
 // import { MongoLogo } from "../logos/mongo";
-import { CpluplusLogo } from "../logos/cplusplus";
+import { CplusplusLogo } from "../logos/cplusplus";
 import { HTMLLogo } from "../logos/html";
 import { PythonLogo } from "../logos/python";
 import { BootstrapLogo } from "../logos/bootstrap";
