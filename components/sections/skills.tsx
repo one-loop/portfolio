@@ -5,7 +5,8 @@ import { NodeJSLogo } from "../logos/nodejs";
 import { CSSLogo } from "../logos/css";
 import { TailwindLogo } from "../logos/tailwind";
 import { FigmaLogo } from "../logos/figma";
-import { MongoLogo } from "../logos/mongo";
+// import { MongoLogo } from "../logos/mongo";
+import { CpluplusLogo } from "../logos/cplusplus";
 import { HTMLLogo } from "../logos/html";
 import { PythonLogo } from "../logos/python";
 import { BootstrapLogo } from "../logos/bootstrap";
@@ -18,21 +19,22 @@ export const Skills = () => (
       Skills
     </h2>
     <p className="text-lg md:text-xl text-primary-text text-center mb-12">
-        I'm continuing to learn and add to my knowledge
+        I'm continuing to learn and grow
     </p>
     <div className="flex [&_svg]:min-w-[10rem] md:[&_svg]:min-w-[16rem] flex-wrap gap-x-6 gap-y-8 justify-around  [&_svg]:basis-[calc(50%-12 px)] md:[&_svg]:basis-[calc(16.66%-20px)] items-center">
          <HTMLLogo />
          <CSSLogo className="hidden md:block"/>
          <JavaScriptLogo />
          <NodeJSLogo className="hidden md:block"/>
-         <ReactLogo />
+         <CplusplusLogo />
          <PythonLogo />
+         <ReactLogo />
          <TailwindLogo />
-         <BootstrapLogo />
+         <BootstrapLogo className="hidden md:visible" />
          <NextJSLogo className="hidden md:visible"/>
          <GitLogo className="hidden md:visible"/>
          <FigmaLogo className="hidden md:visible"/>
-         <MongoLogo className="hidden md:visible" />
+{/*          <MongoLogo className="hidden md:visible" /> */}
     </div>
   </>
 )
