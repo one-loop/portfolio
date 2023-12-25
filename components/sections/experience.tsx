@@ -98,7 +98,7 @@ export const Experience = () => {
                                     <ul className="mt-2 text-sm leading-normal text-primary-text list-disc [&_li]:mb-1">
                                         <li>Currently a freshman majoring in Computer Science with a minor in Economics</li>
                                         <li>Full scholarship. Class of 2027. 4% acceptance rate.</li>
-                                        <li>GPA: 4.0</li>
+                                        <li>Grade: 4.0/4.0</li>
                                     </ul>
                                     {/* <div className="mt-2">
                                         <span className="relative inline-flex items-center mt-2 mr-2 rounded-full text-off-white bg-white bg-opacity-10 border border-transparent-white backdrop-filter-[12px] hover:bg-opacity-20 transition-colors ease-in [&_.highlight]:bg-transparent-white [&_.highlight]:rounded-full [&_.highlight]:px-2 [&_.highlight:first-child]:-ml-2 [&_.highlight:first-child]:mr-2 [&_.highlight:last-child]:ml-2 [&_.highlight:last-child]:-mr-2 text-xs px-3 h-7">
