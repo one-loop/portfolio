@@ -90,15 +90,15 @@ export const Experience = () => {
                                 </div>
                                 <div className="sm:col-span-6">
                                     <h3 className="text-lg">
-                                        <span>Student · <span className="inline-block">New York University<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="inline-block h-4 w-4 shrink-0 transition-transform group-hover/link:-translate-y-1 group-hover/link:translate-x-1 group-focus-visible/link:-translate-y-1 group-focus-visible/link:translate-x-1 motion-reduce:transition-none ml-1 translate-y-px" aria-hidden="true"><path fillRule="evenodd" d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z" clipRule="evenodd"></path></svg></span></span>
+                                        <span>Student · <span className="inline-block">New York University Abu Dhabi<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="inline-block h-4 w-4 shrink-0 transition-transform group-hover/link:-translate-y-1 group-hover/link:translate-x-1 group-focus-visible/link:-translate-y-1 group-focus-visible/link:translate-x-1 motion-reduce:transition-none ml-1 translate-y-px" aria-hidden="true"><path fillRule="evenodd" d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z" clipRule="evenodd"></path></svg></span></span>
                                     </h3>
                                     <span className="text-xs text-primary-text sm:col-span-2 mb-2 mt-1 [&_span]:block [&_span]:mb-2">
                                         Abu Dhabi, UAE 🇦🇪
                                     </span>
                                     <ul className="mt-2 text-sm leading-normal text-primary-text list-disc [&_li]:mb-1">
-                                        <li>Currently a freshman majoring in Computer Science and a minor in Economics</li>
+                                        <li>Currently a freshman majoring in Computer Science with a minor in Economics</li>
                                         <li>Full scholarship. Class of 2027. 4% acceptance rate.</li>
-                                        <li>GPA: N/A (not yet released)</li>
+                                        <li>GPA: 4.0</li>
                                     </ul>
                                     {/* <div className="mt-2">
                                         <span className="relative inline-flex items-center mt-2 mr-2 rounded-full text-off-white bg-white bg-opacity-10 border border-transparent-white backdrop-filter-[12px] hover:bg-opacity-20 transition-colors ease-in [&_.highlight]:bg-transparent-white [&_.highlight]:rounded-full [&_.highlight]:px-2 [&_.highlight:first-child]:-ml-2 [&_.highlight:first-child]:mr-2 [&_.highlight:last-child]:ml-2 [&_.highlight:last-child]:-mr-2 text-xs px-3 h-7">
