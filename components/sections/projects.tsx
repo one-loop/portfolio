@@ -73,7 +73,7 @@ export const Projects = () => {
                         <Container className="mt-[8rem] md:mt-[4rem]">
                             <div className="cards flex flex-row flex-wrap gap-6 mx-auto items-center">
                                 <div className="card [--card-w:100%] sm:[--card-w:calc(50%-(3.2rem/2))] !p-0 [border:1px_solid_rgb(255,255,255,0.08)]">
-                                    <Link href="https://avaevolve.org" target="_blank">
+                                    <Link href="https://avaevolve.vercel.app/#" target="_blank">
                                         <div className="inner !p-0 pb-1 transition-all cursor-pointer">
                                             <div className="overflow-hidden">
                                                 <img src="../cards/AVA Card 2.jpg" alt="AVA Evolve project thumbnail" className="card-image h-auto max-h-[300px] w-full object-cover object-top"/>
